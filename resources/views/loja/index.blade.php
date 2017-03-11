@@ -6,5 +6,4 @@
         {!! var_dump($loja) !!}
     @endforeach
 
-
 @stop

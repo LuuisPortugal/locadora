@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        View::composer('layouts.app', function ($view) {
+            $linksMenu = [];
+            $routeCollection = Route::getRoutes();
+            foreach ($routeCollection as $value)
+                if (strpos($value->getName(), "index") !== false)
+                    $linksMenu[$value->getName()] = ucfirst($value->getUri());
+            $view->with("linksMenu", $linksMenu);
+        });
     }
 }

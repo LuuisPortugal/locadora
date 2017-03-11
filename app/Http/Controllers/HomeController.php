@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 class HomeController extends Controller
 {
@@ -24,13 +23,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $linksMenu = [];
-        $routeCollection = Route::getRoutes();
-        foreach ($routeCollection as $value) {
-            if (strpos($value->getName(), "index") !== false)
-                $linksMenu[$value->getName()] = ucfirst($value->getUri());
-        }
-
-        return view('home', compact(['linksMenu']));
+        return view('home');
     }
 }
