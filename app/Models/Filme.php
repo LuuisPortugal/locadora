@@ -35,10 +35,9 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  */
 class Filme extends Eloquent
 {
+	public $timestamps = false;
 	protected $table = 'filme';
 	protected $primaryKey = 'filme_id';
-	public $timestamps = false;
-
 	protected $casts = [
 		'idioma_id' => 'int',
 		'idioma_original_id' => 'int',
@@ -50,7 +49,6 @@ class Filme extends Eloquent
 	];
 
 	protected $dates = [
-		'ano_de_lancamento',
 		'ultima_atualizacao'
 	];
 
