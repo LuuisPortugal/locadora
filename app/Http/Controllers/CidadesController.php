@@ -43,7 +43,6 @@ class CidadesController extends Controller
         $cidades = $this->repository->all();
 
         if (request()->wantsJson()) {
-
             return response()->json([
                 'data' => $cidades,
             ]);

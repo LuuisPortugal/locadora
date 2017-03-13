@@ -1,12 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.view')
 @section('page-header-title', "Cidades")
-@section('content')
+@section('content-view')
     <div class="col-md-9">
         <h3 class="text-muted text-left">
             Lista
         </h3>
         @if(empty($cidades))
-            <h5> Nenhuma Categoria.</h5>
+            <h5> Nenhuma Cidade.</h5>
         @else
             <table class="table table-condensed table-striped">
                 <thead>

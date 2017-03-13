@@ -25,8 +25,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        View::composer('layouts.app', function ($view) {
+        View::composer('layouts.view', function ($view) {
             $linksMenu = [];
             $routeCollection = Route::getRoutes();
             foreach ($routeCollection as $value)

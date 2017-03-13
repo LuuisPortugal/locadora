@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.view')
 @section('page-header-title', "Atores")
-@section('content')
+@section('content-view')
     <div class="col-md-9">
         <h3 class="text-muted text-left">
             Lista

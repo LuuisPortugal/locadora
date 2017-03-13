@@ -40,16 +40,16 @@ class PaisController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $pais = $this->repository->all();
+        $paises = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $pais,
+                'data' => $paises,
             ]);
         }
 
-        return view('pai.index', compact('pais'));
+        return view('pai.index', compact('paises'));
     }
 
 
@@ -77,11 +77,11 @@ class PaisController extends Controller
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $pai = $this->repository->create($request->all());
+            $pais = $this->repository->create($request->all());
 
             $response = [
                 'message' => 'Pai created.',
-                'data' => $pai->toArray(),
+                'data' => $pais->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -112,16 +112,16 @@ class PaisController extends Controller
      */
     public function show($id)
     {
-        $pai = $this->repository->find($id);
+        $pais = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $pai,
+                'data' => $pais,
             ]);
         }
 
-        return view('pai.show', compact('pai'));
+        return view('pai.show', compact('pais'));
     }
 
 
@@ -135,9 +135,9 @@ class PaisController extends Controller
     public function edit($id)
     {
 
-        $pai = $this->repository->find($id);
+        $pais = $this->repository->find($id);
 
-        return view('pai.edit', compact('pai'));
+        return view('pai.edit', compact('pais'));
     }
 
 
@@ -156,11 +156,11 @@ class PaisController extends Controller
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $pai = $this->repository->update($request->all(), $id);
+            $pais = $this->repository->update($request->all(), $id);
 
             $response = [
                 'message' => 'Pai updated.',
-                'data' => $pai->toArray(),
+                'data' => $pais->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -198,11 +198,11 @@ class PaisController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'Pai deleted.',
+                'message' => 'Pais deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'Pai deleted.');
+        return redirect()->back()->with('message', 'Pais deleted.');
     }
 }
