@@ -34,11 +34,11 @@
                                 </td>
                             @endforeach
                             <td align="center">
-                                <form action="{{ route("filmetexto.destroy", $filmetexto->filmetexto_id) }}"
+                                <form action="{{ route("filmetexto.destroy", $filmetexto->filme_id) }}"
                                       method="post">
                                     {{ method_field('DELETE') }}
                                     {{ csrf_field() }}
-                                    <a href="{{ route("filmetexto.edit", $filmetexto->filmetexto_id) }}"
+                                    <a href="{{ route("filmetexto.edit", $filmetexto->filme_id) }}"
                                        class="btn btn-primary btn-sm" aria-label="Editar">
                                         <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                                     </a>
